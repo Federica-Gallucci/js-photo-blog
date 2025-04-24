@@ -6,15 +6,22 @@
   border: 2px dashed red;
 }
 
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Edu TAS Beginner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* HEADER */
 
 header {
   background-image: url(".././img/wall.png");
   background-size: cover;
-  font-family: "Edu TAS Beginner", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
 }
 
 /* MAIN */
@@ -39,8 +46,16 @@ main {
   position: relative;
 }
 .all-card .pin-img {
+  max-width: 25px;
   position: absolute;
-  top: 10px;
+  top: 7px;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.data {
+  font-family: "Sometype Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
