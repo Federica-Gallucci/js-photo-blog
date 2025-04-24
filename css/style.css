@@ -5,3 +5,17 @@
   background-color: #ff000033;
   border: 2px dashed red;
 }
+
+/* HEADER */
+
+header {
+  background-image: url(".././img/wall.png");
+  background-size: cover;
+}
+
+/* MAIN */
+
+main {
+  background-image: url(".././img/cork.png");
+  background-size: cover;
+}
