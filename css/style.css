@@ -11,11 +11,25 @@
 header {
   background-image: url(".././img/wall.png");
   background-size: cover;
+  font-family: "Edu TAS Beginner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* MAIN */
 
+img {
+  width: 100%;
+}
+
 main {
   background-image: url(".././img/cork.png");
   background-size: cover;
+}
+
+.all-card {
+  background-color: white;
+  margin: 10px;
+  padding: 20px;
 }
