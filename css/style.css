@@ -19,7 +19,7 @@ header {
 
 /* MAIN */
 
-img {
+.all-card .card-image img {
   width: 100%;
 }
 
@@ -31,5 +31,16 @@ main {
 .all-card {
   background-color: white;
   margin: 10px;
-  padding: 20px;
+  padding: 15px;
+}
+
+/* posiziono il pin (il centro dell'immagine del pin) in alto a all-card  */
+.all-card {
+  position: relative;
+}
+.all-card .pin-img {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
