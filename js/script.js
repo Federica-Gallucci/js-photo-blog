@@ -15,9 +15,7 @@
 // Spostandosi col mouse sopra le foto, queste si zoommano, ruotano di 10 gradi e la loro ombra aumenta,
 //  il tutto in manierà fluida. Inoltre il mouse diventa un puntatore, per far capire all’utente che può cliccare.
 
-const allCardEl = document.querySelector(".all-card");
 const cardsContainer = document.getElementById("cards-container");
-const overlayNoVisible = document.querySelector("overlay-no-visible");
 
 const closeButton = document.getElementById("close-button");
 
@@ -33,7 +31,7 @@ function generateCard(post) {
               <div class="card-image">
                 
                 <img src="${post.url}"  alt="${post.title}" />
-                <img class="pin-img" src="./img/pin.svg" alt="pin" />
+                <img class=" pin-img" src="./img/pin.svg" alt="pin" />
               </div>
               <div class="card-text py-3">
                 <time class="data text-secondary">${post.date}</time>
@@ -75,12 +73,21 @@ axios.get(apiUri).then((response) => {
       console.log(imgSrc);
       // rimuovo la classe overlay-no-visible
       document.querySelector(`.overlay`).classList.remove(`overlay-no-visible`);
+
       document.querySelector(`.overlay img`).src = imgSrc;
     });
     // al click del bottone l'overlay si chiude
     closeButton.addEventListener("click", () => {
       document.querySelector(`.overlay`).classList.add(`overlay-no-visible`);
     });
+
+    // # bonus
+    // postCardNode.addEventListener("mousenter", () => {
+    // document.querySelectorAll(".pin-img").classList.add("d-none");
+    //   postCardNode.style.trasform = `scale(1.2) rotate(10deg)`;
+    //   postCardNode.style.shadow = `6px 6px 6px rgba(0, 0, 0, 1)`;
+    //   postCardNode.style.cursor = `pointer`;
+    // });
   });
 });
 
