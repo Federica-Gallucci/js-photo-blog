@@ -23,6 +23,27 @@ body {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.overlay-no-visible {
+  display: none;
+}
+
+.overlay img {
+  max-width: 600px;
+}
+
+#close-button {
+  background-color: white;
+  color: black;
+  border: 1px, solid, white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* HEADER */
