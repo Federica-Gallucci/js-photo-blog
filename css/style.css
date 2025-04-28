@@ -6,15 +6,25 @@
   border: 2px dashed red;
 }
 
-* {
-  margin: 0;
-}
-
 body {
   font-family: "Edu TAS Beginner", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.layover {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+
+  display: none;
 }
 
 /* HEADER */
@@ -24,7 +34,18 @@ header {
   background-size: cover;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 /* MAIN */
+
+#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px;
+}
 
 .all-card .card-image img {
   width: 100%;
@@ -37,25 +58,26 @@ main {
 
 .all-card {
   background-color: white;
-  margin: 10px;
-  padding: 15px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 /* posiziono il pin (il centro dell'immagine del pin) in alto a all-card  */
-.all-card {
+.all-card .card-image {
   position: relative;
 }
 .all-card .pin-img {
   max-width: 25px;
   position: absolute;
-  top: 7px;
+  top: 0px;
   left: 50%;
+
   transform: translate(-50%, -50%);
 }
 
 .data {
   font-family: "Sometype Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: weight;
   font-style: normal;
 }

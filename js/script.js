@@ -1,57 +1,75 @@
-// ? Milestone 1
-// Sfruttando gli screen e gli asset in allegato riproduciamo la grafica proposta in maniera statica:
-// utilizzando soltanto HTML e CSS e riproducendo una singola fotografia
-//  (usiamo una qualunque immagine a piacimento)
+// ?  Milestone 1.2
+// Facciamo in modo di creare un overlay che copra l’intera pagina e all’interno, centrata,
+// disponiamo un’immagine qualunque ed un button di chiusura.
 
-// ? Milestone 2
-// Utilizzando Postman, testiamo una chiamata a questo endpoint:
-// https://lanciweb.github.io/demo/api/pictures/
-// In alternativa al potete anche usare le API di:
-// https://jsonplaceholder.typicode.com/
-// In ogni caso studiamo bene la risposta e i dati che ci fornisce iniziando a pensare a come poterli sfruttare.
+// ? Milestone 2.2
+// Facciamo sparire l’overlay con l’aiuto di una classe CSS che imposti il display: none .
+// Dopodiché facciamo sì che cliccando una qualunque foto. L’overlay ricompaia.
+// Cliccando invece il button di chiusura, l’overlay scompare nuovamente.
 
-// ? Milestone 3
-// Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API,
-// sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
+// ? Milestone 3.2
+// Inseriamo il pezzo di logica finale: quando una foto viene cliccata,
+//  dobbiamo fare in modo che sia proprio quella foto a essere mostrata all’interno dell’overlay.
+
+// ? Bonus
+// Spostandosi col mouse sopra le foto, queste si zoommano, ruotano di 10 gradi e la loro ombra aumenta,
+//  il tutto in manierà fluida. Inoltre il mouse diventa un puntatore, per far capire all’utente che può cliccare.
+
+const loaderEl = document.querySelector(".overlay");
 
 const allCardEl = document.querySelector(".all-card");
+const cardsContainer = document.getElementById("cards-container");
 
 const apiUri = `https://lanciweb.github.io/demo/api/pictures/`;
 
-function generateCard(title, data, url) {
-  return `
-            
+// # FUNZIONI
+
+function generateCard(post) {
+  const cardHtml = `
+  <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="all-card">
               <div class="card-image">
-                <img src="${url}" alt="" />
+                <img class="pin-img" src="./img/pin.svg" alt="pin" />
+                <img src="${post.url}" alt="${post.title}" />
               </div>
               <div class="card-text py-3">
-                <time class="data text-secondary">${data}</time>
-                <h2 class="title-image">${title}</h2>
+                <time class="data text-secondary">${post.date}</time>
+                <h2 class="title-image">${post.title}</h2>
                   
                 
               </div>
+            </div>
+            </div>
+           
     `;
+  return cardHtml;
 }
 
-axios.get(apiUri).then((response) => {
-  const randomTitle = response.data.title;
-  const randomDate = response.data.date;
-  const randomUrl = response.data.url;
-  const newImage = generateCard(randomTitle, randomDate, randomUrl);
+axios
+  .get(apiUri)
+  .then((response) => {
+    const postsCard = response.data;
+    console.log(postsCard);
 
-  console.log(response);
+    let cardsHtml = "";
+    postsCard.forEach((postCard) => {
+      cardsHtml += generateCard(postCard);
+    });
+    // innerHtml è una DOM API, faccio in modo che la pagina venga aggiornata una volta sola
+    //anzichè 6 volte, quindi lo inserisco fuori dal ciclo
+    cardsContainer.innerHTML += cardsHtml;
+  })
 
-  //   allCardEl.innerHTML = newImage;
-  // console.log(newImage);
-});
-//   .cacth((error) => {
-//     console.log(error);
-//   });
-//   .finally();
+  // const cardTitle = response.data.title;
+  // const cardDate = response.data[0].date;
+  // const cardUrl = response.data[0].url;
+  // const newImage = generateCard(cardTitle, cardDate, cardUrl);
+  // allCardEl.innerHTML = newImage;
 
-// axios
-//   .get(`https://flynn.boolean.careers/exercises/api/random/mail`)
-//   .then((response) => {
-//     const randomEmail = response.data.response; // accedo ai dati (data) della risposta(response) con key response(response)
-//     console.log(response);
-//   });
+  .cacth((error) => {
+    console.log(error);
+    alert("Errore!!");
+  })
+  .finally(() => {
+    loaderEl.classList.remove("d-none");
+  });
