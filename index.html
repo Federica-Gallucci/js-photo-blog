@@ -7,13 +7,13 @@
     <title>Photo Blog</title>
 
     <!--  FONT AWESOME  -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
+    /> -->
 
     <!-- BOOTSTRAP -->
     <link
@@ -66,8 +66,11 @@
 
     <script src="./js/script.js" defer></script>
   </head>
+
+  <!--  -->
   <body>
     <div class="wrapper">
+      <!-- # OVERLAY -->
       <div class="overlay overlay-no-visible">
         <div class="button-overlay">
           <button id="close-button">CHIUDI</button>
@@ -77,7 +80,7 @@
           <img src="" alt="image" />
         </div>
       </div>
-
+      <!-- # HEADER -->
       <header>
         <div class="container">
           <div class="row">
@@ -87,23 +90,23 @@
           </div>
         </div>
       </header>
+
+      <!-- # MAIN -->
       <main>
         <div class="container">
           <div class="row" id="cards-container">
-            <!-- <div class="col-xs-12 col-md-6 col-lg-4">
-              <div class="all-card">
-                <img class="pin-img" src="./img/pin.svg" alt="pin" /> -->
-
-            <!-- <div class="card-image">
-                <img src="viale-autunno.jpg" alt="viale-autunno" />
-              </div>
-              <div class="card-text py-3">
-                <time class="data text-secondary">03-12</time>
-                <p class="title-image">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-              </div>
-              </div>
+            <!--   <div class="col-xs-12 col-md-6 col-lg-4">
+  
+                      <div class="single-card" id="post-card-${post.id}" >
+                        <div class="card-image">
+                           <img src="${post.url}"  alt="${post.title}" />
+                           <img class="pin-img " src="./img/pin.svg" alt="pin" />
+                        </div>
+                        <div class="card-text py-3">
+                           <time class="data text-secondary">${post.date}</time>
+                           <h2 class="title-image">${post.title}</h2>
+                        </div>
+                    </div>
             </div> -->
           </div>
         </div>

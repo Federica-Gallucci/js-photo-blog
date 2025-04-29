@@ -6,17 +6,29 @@
   border: 2px dashed red;
 }
 
+/* # FONTS */
+
 body {
   font-family: "Edu TAS Beginner", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
+
+.data {
+  font-family: "Sometype Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
 .wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+/* # OVERLAY */
 .overlay {
   position: fixed;
   z-index: 10;
@@ -59,6 +71,11 @@ h1 {
 
 /* MAIN */
 
+main {
+  background-image: url(".././img/cork.png");
+  background-size: cover;
+}
+
 #cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -66,49 +83,43 @@ h1 {
   padding: 40px;
 }
 
-.all-card .card-image img {
-  width: 100%;
-}
-
-/* # Bonus */
-
-.all-card {
-  transition-duration: 0.8s;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
-.all-card:hover {
-  transform: scale(1.2) rotate(10deg);
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 1);
-  cursor: pointer;
-}
-
-main {
-  background-image: url(".././img/cork.png");
-  background-size: cover;
-}
-
-.all-card {
+.single-card {
   background-color: white;
   margin: 1rem;
   padding: 1rem;
+  transition-duration: 0.8s;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  transition-timing-function: ease-in-out;
 }
 
-/* posiziono il pin (il centro dell'immagine del pin) in alto a all-card  */
-.all-card .card-image {
+.single-card .card-image img {
+  width: 100%;
+}
+
+/* todo - SINGLE-CARD HOVER */
+
+.single-card:hover {
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 1);
+  cursor: pointer;
+  z-index: 1;
   position: relative;
 }
-.all-card .pin-img {
+
+.single-card:hover .pin-img {
+  display: none;
+}
+
+/* todo - POSITION pin-img */
+
+.single-card .card-image {
+  position: relative;
+}
+.single-card .pin-img {
   max-width: 25px;
   position: absolute;
   top: 0px;
   left: 50%;
 
   transform: translate(-50%, -50%);
-}
-
-.data {
-  font-family: "Sometype Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
 }
